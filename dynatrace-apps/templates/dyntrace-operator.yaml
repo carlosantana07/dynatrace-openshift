@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dynatrace-operator
+spec:
+  destination:
+    name: ''
+    namespace: dynatrace
+    server: {{ .Values.spec.destination.server }}
+  source:
+    path: ''
+    repoURL: >-
+      https://raw.githubusercontent.com/Dynatrace/dynatrace-operator/main/config/helm/repos/stable
+    targetRevision: 0.15.0
+    chart: dynatrace-operator
+    helm:
+      parameters:
+        - name: csidriver.enabled
+          value: 'true'
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
