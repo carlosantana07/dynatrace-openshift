@@ -9,7 +9,7 @@ You can use the template located at [dynatrace-secret-template](/dynakube-secret
 
 ### Update values.yaml
 
-Set the parameters for `spec.source.repoURL` of the `values.yaml` file in [dynatrace-secret-template](/dynakube-secret-template)
+Set the parameters for `spec.source.repoURL` of the `values.yaml` file in [dynatrace-apps](/dynatrace-apps)
 
 Update the `spec.apiURL` of the `dynakube.yaml` in [dynakube](/dynakube)
 
