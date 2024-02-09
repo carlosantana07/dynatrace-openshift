@@ -5,13 +5,13 @@
 ### API Tokens
 Create the API Token and Data Ingest token as per [dynatrace documentation](https://docs.dynatrace.com/docs/setup-and-configuration/setup-on-k8s/installation/tokens-permissions)
 
-You can use the template located at [dynatrace-secret-template](#dynakube-secret-template) to create the kubernetes secret
+You can use the template located at [dynatrace-secret-template](/dynakube-secret-template) to create the kubernetes secret
 
 ### Update values.yaml
 
-Set the parameters for `spec.source.repoURL` of the `values.yaml` file in [dynatrace-secret-template](#dynakube-secret-template)
+Set the parameters for `spec.source.repoURL` of the `values.yaml` file in [dynatrace-secret-template](/dynakube-secret-template)
 
-Update the `spec.apiURL` of the `dynakube.yaml` in [dynakube](#dynakube)
+Update the `spec.apiURL` of the `dynakube.yaml` in [dynakube](/dynakube)
 
 ## dynatrace-apps
 
