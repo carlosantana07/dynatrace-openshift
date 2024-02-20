@@ -1,0 +1,3 @@
+resources:
+- dynakube-cloudNative.yaml
+namePrefix: dynatrace-openshift-

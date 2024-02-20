@@ -1,7 +1,7 @@
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: openshift-inovation-cluster
+  name: dynakube
   namespace: dynatrace
 spec:
   # Dynatrace apiUrl including the `/api` path at the end.
