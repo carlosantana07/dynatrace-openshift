@@ -9,4 +9,7 @@ patchesJson6902:
       version: v1
       kind: Deployment
       name: dynakube
-    path: dynakube-cloudNative.yaml
+    patch: |-
+      - op: replace
+        path: /metedata/name
+        value: my-cluster
