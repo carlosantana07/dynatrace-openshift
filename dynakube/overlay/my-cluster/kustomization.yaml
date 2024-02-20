@@ -1,13 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
-bases:
+resources:
 - ../../base
 
-patchesJson6902:
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: dynakube
-    path: patch/dynakube-cloudNative.yaml
+patches:
+- path: dynakube-cloudNative.yaml
+  target:
+    kind: Deployment
+  options:
+    allowNameChange: true
