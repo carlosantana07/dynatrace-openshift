@@ -6,6 +6,6 @@ resources:
 patches:
 - path: dynakube-cloudNative.yaml
   target:
-    kind: Deployment
+    kind: DynaKube
   options:
     allowNameChange: true
