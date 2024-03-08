@@ -61,9 +61,9 @@ spec:
   #    - key: app
   #      operator: In
   #      values: [my-frontend, my-backend, my-database]
-  namespaceSelector:
-    matchLabels:
-      dynatrace: enable 
+  # namespaceSelector:
+  #   matchLabels:
+  #     dynatrace: enable
 
   # Configuration for OneAgent instances
   #
@@ -71,7 +71,7 @@ spec:
     # Enables cloud-native fullstack monitoring and changes its settings
     # Cannot be used in conjunction with classic fullstack monitoring, application-only monitoring or host monitoring
     #
-    cloudNativeFullStack:
+    classicFullStack:
       # Optional: Sets a node selector to control on which nodes the OneAgent will be deployed.
       # For more information on node selectors, see https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
       #
@@ -85,6 +85,8 @@ spec:
       # Optional: Specifies tolerations to include with the OneAgent DaemonSet.
       # For more information on tolerations, see https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
       #
+      image: ""
+
       tolerations:
         - effect: NoSchedule
           key: node-role.kubernetes.io/master
@@ -169,7 +171,7 @@ spec:
 
   # Configuration for ActiveGate instances.
   #
-  #activeGate:
+  activeGate:
     # Specifies which capabilities will be enabled on ActiveGate instances
     # The following capabilities can be set:
     # - routing
@@ -177,10 +179,10 @@ spec:
     # - metrics-ingest
     # - dynatrace-api
     #
-    #capabilities:
-    #  - routing
-    #  - kubernetes-monitoring
-    #  - dynatrace-api
+    capabilities:
+     - routing
+     - kubernetes-monitoring
+     - dynatrace-api
 
     # Optional: Sets how many ActiveGate pods are spawned by the StatefulSet
     # Defaults to "1"
@@ -191,7 +193,7 @@ spec:
     # Defaults to the latest ActiveGate image on the tenant's registry
     # Example: "ENVIRONMENTID.live.dynatrace.com/linux/activegate:latest"
     #
-    # image: ""
+    image: ""
 
     # Recommended: Sets the activation group for ActiveGate instances
     #
@@ -210,13 +212,13 @@ spec:
     # Consumption of the ActiveGate heavily depends on the workload to monitor
     # The values should be adjusted according to the workload
     #
-    #resources:
-    #  requests:
-    #    cpu: 500m
-    #    memory: 512Mi
-    #  limits:
-    #    cpu: 1000m
-    #    memory: 1.5Gi
+    resources:
+     requests:
+       cpu: 500m
+       memory: 512Mi
+     limits:
+       cpu: 1000m
+       memory: 1.5Gi
 
     # Optional: Sets a node selector to control on which nodes the ActiveGate will be deployed.
     # For more information on node selectors, see https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
